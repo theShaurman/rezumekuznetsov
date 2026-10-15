@@ -1,0 +1,484 @@
+/* Шрифты: Space Grotesk / Space Mono для латиницы и цифр, Golos Text / JetBrains Mono для кириллицы */
+@font-face {
+  font-family: "Resume Sans";
+  src: url("fonts/space-grotesk-latin-500-normal.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Resume Sans";
+  src: url("fonts/space-grotesk-latin-700-normal.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Resume Sans";
+  src: url("fonts/golos-text-cyrillic-500-normal.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: "Resume Sans";
+  src: url("fonts/golos-text-cyrillic-700-normal.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: "Resume Mono";
+  src: url("fonts/space-mono-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Resume Mono";
+  src: url("fonts/jetbrains-mono-cyrillic-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+:root {
+  --bg: #FFFFFF;
+  --text: #0D0D0D;
+  --muted: #767676;
+  --accent: #F36C21;
+  --accent-hover: #D95A14;
+  --line: #E4E4E4;
+  --tint: #FDF3EC;
+
+  --sans: "Resume Sans", ui-sans-serif, system-ui, sans-serif;
+  --mono: "Resume Mono", ui-monospace, monospace;
+
+  --gutter: 24px;
+  --h1: clamp(34px, 9vw, 64px);
+  --h2: clamp(28px, 7vw, 48px);
+  --statement: clamp(24px, 6vw, 40px);
+  --name: 22px;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --gutter: 48px;
+    --name: 28px;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, p, ul, dl, dd {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.page {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+/* Общие элементы */
+.label {
+  font-family: var(--mono);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.text {
+  font-size: 16px;
+  line-height: 1.55;
+  max-width: 640px;
+}
+
+.text--muted {
+  color: var(--muted);
+}
+
+.link {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.link:hover {
+  text-decoration-thickness: 2px;
+}
+
+.link--wrap {
+  overflow-wrap: anywhere;
+}
+
+/* Шапка: фото и личные данные */
+.hero {
+  padding: 32px var(--gutter) 56px;
+}
+
+.pixels {
+  display: block;
+}
+
+.pixels--m {
+  width: min(100%, 300px);
+}
+
+.pixels--d {
+  display: none;
+}
+
+.hero__kicker {
+  margin-top: 24px;
+}
+
+.hero__body {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.hero__photo {
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  background: var(--tint);
+}
+
+.hero__info {
+  min-width: 0;
+}
+
+.hero__name {
+  margin-top: 8px;
+  font-size: var(--h1);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.facts {
+  margin-top: 32px;
+  border-top: 1px solid var(--line);
+}
+
+.facts__row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.facts dd {
+  font-size: 18px;
+  line-height: 1.4;
+  min-width: 0;
+}
+
+/* Секции */
+.section {
+  padding: 56px var(--gutter);
+  border-top: 1px solid var(--line);
+}
+
+.section__title {
+  margin-top: 12px;
+  font-size: var(--h2);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.statement {
+  margin-top: 24px;
+  max-width: 820px;
+  font-size: var(--statement);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.statement strong {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* Опыт и образование */
+.job {
+  margin-top: 32px;
+}
+
+.job__role {
+  margin-top: 8px;
+  margin-bottom: 12px;
+  font-size: var(--name);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.projects__label {
+  margin-top: 40px;
+}
+
+.projects {
+  margin-top: 12px;
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+
+.project {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.project__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  font-size: var(--name);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  max-width: 100%;
+}
+
+.project__name {
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--line);
+  transition: text-decoration-color 0.15s;
+}
+
+.project__arrow {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  color: var(--accent);
+  transition: transform 0.2s;
+}
+
+.project__link:hover .project__name {
+  text-decoration-color: var(--text);
+}
+
+.project__link:hover .project__arrow {
+  transform: translate(2px, -2px);
+}
+
+.project .text {
+  margin-top: 4px;
+}
+
+.facts--edu,
+.facts--langs {
+  margin-top: 24px;
+}
+
+/* Навыки */
+.skills {
+  margin-top: 32px;
+  display: grid;
+  gap: 28px;
+}
+
+.skills__head {
+  font-family: var(--mono);
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.tags {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tags li {
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  font-size: 15px;
+  line-height: 1.3;
+}
+
+/* Списки с пиксельным маркером */
+.bullets {
+  margin-top: 28px;
+  display: grid;
+  gap: 14px;
+}
+
+.bullets li {
+  position: relative;
+  padding-left: 26px;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.4em;
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+}
+
+/* Подвал */
+.footer {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 32px var(--gutter) 0;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.footer .label {
+  padding-bottom: 24px;
+}
+
+.footer__pixels {
+  display: block;
+  flex: none;
+  width: 160px;
+  margin-right: calc(-1 * var(--gutter));
+}
+
+/* Планшет */
+@media (min-width: 640px) {
+  .hero__body {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  .hero__photo {
+    flex: none;
+    width: 240px;
+  }
+
+  .hero__info {
+    flex: 1;
+  }
+
+  .facts__row {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 16px;
+  }
+
+  .facts__row .label {
+    flex: none;
+    width: 128px;
+  }
+
+  .facts--edu .facts__row .label {
+    width: 140px;
+  }
+}
+
+/* Десктоп */
+@media (min-width: 1024px) {
+  .hero {
+    padding-top: 48px;
+    padding-bottom: 96px;
+  }
+
+  .pixels--m {
+    display: none;
+  }
+
+  .pixels--d {
+    display: block;
+    width: 576px;
+  }
+
+  .hero__body {
+    gap: 48px;
+  }
+
+  .hero__photo {
+    width: 300px;
+    max-width: none;
+  }
+
+  .section {
+    padding: 96px var(--gutter);
+  }
+
+  .skills {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .bullets {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 48px;
+    max-width: 880px;
+  }
+
+  .footer__pixels {
+    width: 280px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
